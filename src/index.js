@@ -2,7 +2,6 @@
 lo nombramos app */
 const app = require('./configuracion/servidor');
 
-
 require('./app/rutas/noticias')(app);
 
 //Iniciar el servidor
