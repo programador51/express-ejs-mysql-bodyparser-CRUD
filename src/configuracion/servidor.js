@@ -21,7 +21,9 @@ app.set('views',ruta.join(__dirname,'../app/vistas'));
 
 //MIDDLEWARE
 /* Como solo usaremos un formulario usamos urlencoded y seteamos el objeto
-extended en false porque no estaremos enviando imagenes ni nada de eso */
+extended en false porque no estaremos enviando imagenes ni nada de eso 
+Ayuda a que podamos extraer la informacion de los formularios a travez de su atributo
+name*/
 app.use(bodyParser.urlencoded({extended:false}));
 
 /* VAMOS A EXPORTAR EL OBJETO APP AL ARCHIVO INDEX*/

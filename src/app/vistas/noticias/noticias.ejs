@@ -4,13 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/darkly/bootstrap.min.css">
-    <title>Document</title>
+    <title>Noticias</title>
 </head>
-<body>
-    <nav class="navbar bg-light navbar-light">
-        <a href="#" class="navbar-brand mx-auto">Noticias</a>
-    </nav>
-    <%=2+2 %>
-    <%=noticias[0].titulo %>
+<body class="container">
+    <div class="row">
+        <nav class="col-12 navbar bg-light navbar-light">
+            <a href="#" class="navbar-brand mx-auto">Noticias</a>
+        </nav>
+    </div>
+    
+    <div class="row mt-4">
+        <table class="table table-hover col-6">
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Cuerpo</th>
+                <th>Publicado</th>
+            </tr>
+            <% for(var i = 0 ; i < noticias.length ; i++){ %>
+                <tr>
+                    <th><%=noticias[i].id_noticia%></th>
+                    <th><%=noticias[i].titulo%></th>
+                    <th><%=noticias[i].noticias%></th>
+                    <th><%=noticias[i].fecha%></th>
+                </tr>
+            <% } %>
+        </table>
+        <div class="col-5 mx-auto card">
+            <form action="/news" method="post" class="my-4">
+                <h3 class="card-title">Agregar noticias</h3>
+                <div class="form-group">
+                    <input type="text" name="titulo" autofocus class="form-control" placeholder="Escribe el título aquí">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="noticias" class="form-control" placeholder="Escribe el cuerpo aquí">
+                </div>
+                <input type="submit" class="btn btn-primary" value="Enviar">
+            </form>
+        </div>
+    </div>
+
 </body>
 </html>

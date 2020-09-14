@@ -26,4 +26,21 @@ module.exports = (app) =>{
         });
         
     });
+
+    app.post('/news',(req,res)=>{
+        /* TABLA : INFORMACION QUE ESTA RECIBIENDO */
+        /* GUARDAMOS LA INFORMACION PERO SOLO LOS ATRIBUTOS QUE PUSIMOS EN
+        LA CONSTANTE */
+        const {titulo,noticias} = req.body;
+
+        /* HACEMOS INSERCION A LA BASE DE DATOS */
+        conexion.query('INSERT INTO noticias SET?',{
+            titulo:titulo,
+            noticias:noticias
+            /* SI ESO FUNCIONA, EJECUTAMOS UNA FUNCION CALLBACK QUE REDIRIJA
+            A LA PAGINA DE INICIO SI TODO FUE CORRECTO */
+        },(err,result)=>{
+            res.redirect('/');
+        })
+    });
 }
